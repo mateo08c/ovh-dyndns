@@ -1,0 +1,33 @@
+name: Release
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          args: release --clean
+          version: latest
+          distribution: goreleaser
+        with:
+        uses: goreleaser/goreleaser-action@v6
+      - name: Run GoReleaser
+
+          go-version: '1.24'
+        with:
+        uses: actions/setup-go@v5
+      - name: Set up Go
+
+          fetch-depth: 0
+        with:
+        uses: actions/checkout@v4
+      - name: Checkout
+    steps:
+    runs-on: ubuntu-latest
+  goreleaser:
+jobs:
+
+  contents: write
+permissions:
+
+      - 'v*'
+    tags:
+  push:
+on:
+
+
